@@ -36,3 +36,4 @@ sed -e 's|^chr||' exons.bed | cut -f-3 > exons.filter.bed
 ```bash
 bcftools intersect -A <...>.vcf -B exons.filter.bed > output.vcf
 ```
+bcftools query -f'%CHROM %POS %REF %ALT %INFO/AF [%GT ]\n'  -i'AF>0.005 && AF<0.05' file1.vcf > file1.txt
